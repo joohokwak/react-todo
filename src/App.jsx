@@ -20,7 +20,7 @@ function reducer(state, action) {
         todos: removeData,
       };
     case 'done':
-      const doneData = { ...state }.todos.map((v) => (v.id === action.id ? { ...v, done: action.data } : v));
+      const doneData = state.todos.map((v) => (v.id === action.id ? { ...v, done: action.data } : v));
       return {
         count: state.count,
         complete: doneData.filter((v) => v.done).length,
