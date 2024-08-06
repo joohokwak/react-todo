@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './TodoItem.module.css';
+import CheckBox from './CheckBox';
 
 export default function TodoItem({ item, dispatch }) {
   function handleChange(e) {
@@ -8,10 +9,9 @@ export default function TodoItem({ item, dispatch }) {
 
   return (
     <li className={styles.todo_item}>
-      <label className={item.done ? `checkbox ${styles.done}` : 'checkbox'}>
-        <input type="checkbox" className="blind" onChange={handleChange} />
+      <CheckBox styles={item.done ? `checkbox ${styles.done}` : 'checkbox'} handleChange={handleChange}>
         {item.text}
-      </label>
+      </CheckBox>
       <button type="button" onClick={() => dispatch({ type: 'remove', id: item.id })}>
         remove
       </button>
